@@ -1,0 +1,46 @@
+{
+  "name": "reactjs-try-out",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "classnames": "^2.2.1",
+    "css-loader": "^0.23.1",
+    "flux": "^2.1.1",
+    "less-loader": "^2.2.2",
+    "object-assign": "^4.0.1",
+    "path": "^0.12.7",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.3",
+    "style-loader": "^0.13.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "http-server": "^0.8.5",
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-server": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run serve | npm run dev",
+    "serve": "./node_modules/.bin/http-server -p 8080",
+    "dev": "webpack-dev-server --config config/webpack.config.js --progress --colors --port 8090"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aventes/reactjs-try-out.git"
+  },
+  "keywords": [
+    "react",
+    "form",
+    "input"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aventes/reactjs-try-out/issues"
+  },
+  "homepage": "https://github.com/Aventes/reactjs-try-out#readme"
+}

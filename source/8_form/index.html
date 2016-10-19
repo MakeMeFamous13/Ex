@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="../../build/react.min.js"></script>
+    <script src="../../build/react-dom.min.js"></script>
+    <script src="../../build/JSXTransformer.js"></script>
+</head>
+<style>
+    .container {
+        width: 300px;
+        border: 1px solid green;
+    }
+
+    .message {
+        border: 1px solid blue;
+        background-color: aliceblue;
+        text-align: center;
+        height: 25px;
+        margin-top: 10px;
+    }
+    .messageItem{
+        color: red;
+    }
+</style>
+<body>
+<div id="example" class="container"></div>
+<script type="text/jsx">
+    var GrocerySelected = React.createClass({
+        render: function(){
+            var selectedValue = this.props.selected;
+            return (
+                <div className="message">Selected item:
+                    <span className="messageItem">{selectedValue}</span>
+                </div>
+            );
+        }
+    });
+
+   var GroceryList = React.createClass({
+       getInitialState: function(){
+           return {selected: "None"};
+       },
+       handleClick: function(i){
+           this.setState({selected: i});
+       },
+       render: function(){
+           var selected = "Selected item: " +  this.state.selected;
+           return (
+               <div>
+                   {this.props.items.map(function(item, i){
+                       return (
+                           <div onClick={this.handleClick.bind(this, item)} key={i}>{item}</div>
+                       );
+                   }, this)}
+                    <GrocerySelected selected={this.state.selected} />
+               </div>
+           );
+       }
+   });
+
+    React.render(
+            <GroceryList items={["Apple", "Banana", "Apricot", 'Cranberry']}/>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

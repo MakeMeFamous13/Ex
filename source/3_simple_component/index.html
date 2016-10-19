@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="../../build/react.min.js"></script>
+    <script src="../../build/react-dom.min.js"></script>
+    <script src="../../build/JSXTransformer.js"></script>
+</head>
+<style>
+    .container {
+        width: 300px;
+    }
+
+    .message {
+        border: 1px solid blue;
+        background-color: aliceblue;
+        text-align: center;
+    }
+</style>
+<body>
+<div id="example" class="container"></div>
+<script type="text/jsx">
+    var Message = React.createClass({
+        render: function() {
+            return <h1>Hello {this.props.name}</h1>;
+        }
+    });
+
+    React.render(
+            <Message name="Omni"/>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Hello React!</title>
+    <script src="../../build/react.min.js"></script>
+    <script src="../../build/react-dom.min.js"></script>
+    <script src="../../build/JSXTransformer.js"></script>
+</head>
+<style>
+    .container {
+        width: 300px;
+    }
+
+    .message {
+        border: 1px solid blue;
+        background-color: aliceblue;
+        text-align: center;
+        height: 25px;
+        width: 50px;
+    }
+    .like{
+        border: 1px solid blue;
+        background-color: aliceblue;
+        text-align: center;
+        height: 25px;
+        width: 75px;
+    }
+    .dislike{
+        border: 1px solid green;
+        background-color: aquamarine;
+        text-align: center;
+        height: 25px;
+        width: 75px;
+    }
+</style>
+<body>
+<div id="example" class="container"></div>
+<script type="text/jsx">
+    var  ToggleButton = React.createClass({
+        getInitialState: function(){
+            return {liked:false};
+        },
+        handleClick: function(){
+            this.setState({liked: !this.state.liked});
+        },
+        render: function(){
+            var text = this.state.liked ? "Like" : "DisLike"
+            var color = this.state.liked ? "like" : "dislike"
+            return (
+                    <div className={color} onClick={this.handleClick}>
+                        {text}
+                    </div>
+            );
+        }
+    });
+
+
+    var Output = React.createClass({
+
+    });
+
+    var ToggleButtonBox = React.createClass({
+        render: function(){
+            return (
+                    <ToggleButton />
+                    <Output />
+            );
+        }
+    });
+
+    React.render(
+            <ToggleButtonBox/>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>

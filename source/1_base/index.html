@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="../../build/react.min.js"></script>
+    <script src="../../build/react-dom.min.js"></script>
+    <script src="../../build/JSXTransformer.js"></script>
+</head>
+<style>
+    .container{
+        width:300px;
+    }
+    .div1{
+        border: 1px solid blue;
+    }
+    .div2{
+        border: 1px solid red;
+    }
+</style>
+<body>
+<div id="example" class="container"></div>
+<script type="text/jsx">
+    var names = ["Agny", "Ori", "Uli"];
+
+    ReactDOM.render(
+    <div className="div1">
+        {
+                names.map(function(name){
+                    return (<div className='div2'>Hello {name}</div>);
+                })
+        }
+    </div>,
+            document.getElementById('example')
+    );
+</script>
+</body>
+</html>
